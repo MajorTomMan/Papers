@@ -1,22 +1,10 @@
 import React from 'react';
 import "../css/Ui.css"
 import Title from './Title';
+import { LChildBottom,LChildMain } from "./LChild"
+import { RChildBottom,RChildMain } from "./RChild"
 
 
-function ChildBottom(){
-    return (
-        <div className='ChildBottom'>
-
-        </div>
-    )
-}
-function ChildMain(){
-    return (
-        <div className='ChildMain'>
-
-        </div>
-    )
-}
 function Top(){
     return (
         <div className='Title'>
@@ -37,8 +25,8 @@ function Context(){
 function Right(){
     return (
         <div className='RightUi'>
-            <ChildMain />
-            <ChildBottom />
+            <RChildMain />
+            <RChildBottom />
         </div>
     );
 }
@@ -46,8 +34,8 @@ function Right(){
 function Left(){
     return (
         <div className='LeftUi'>
-            <ChildMain />
-            <ChildBottom />
+            <LChildMain />
+            <LChildBottom />
         </div>
     );
 }

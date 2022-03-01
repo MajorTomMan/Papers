@@ -1,3 +1,11 @@
+html,body,div,h2{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+
 .title{
     font-size: large;
 }
@@ -23,32 +31,57 @@
     width: 30%;
     height: 100%;
 }
-html,body,div,h2{
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
 .LeftUi .ChildMain,.LeftUi .ChildBottom{
     width:inherit;
-}
-.LeftUi .ChildMain{
+    border: 1px solid black;
+    border-top: none;
+    border-right: none;
     position: absolute;
-    height: 85%;
-}
-.LeftUi .ChildBottom{
-    position: absolute;
-    top: 85%;
-    height: 15%;
 }
 .RightUi .ChildMain,.RightUi .ChildBottom{
     width:100%;
+    border: 1px solid black;
+    border-top: none;
+}
+.LeftUi .ChildMain{
+    height: 80%;
+    overflow: auto;
+}
+.LeftUi .ChildBottom{
+    top: 85%;
+    height: 15%;
 }
 .RightUi .ChildMain{
-    position: absolute;
     height: 70%;
 }
 .RightUi .ChildBottom{
-    position: absolute;
     top: 70%;
     height: 30%;
 }
+
+.LeftUi .ChildBottom .ClickBox{
+    position: inherit;
+    width: 25%;
+    height: 30%;
+    top: 70%;
+    left: 75%;
+    border-bottom: none;
+    border-right: none;
+    border-top:1px solid black;
+    border-left:1px solid black;
+}
+
+.LeftUi .ChildBottom .ClickBox p{
+    position: inherit;
+    margin-top: 10px;
+    margin-bottom: 8px;
+    margin-right: 5px;
+    left: 25%;
+}
+
+.LeftUi .ChildBottom .ClickBox button{
+    margin-left: 20px;
+    margin-right: 1px;
+}
+
+
