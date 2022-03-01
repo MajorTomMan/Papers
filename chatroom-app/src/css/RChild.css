@@ -1,0 +1,12 @@
+.RightUi .ChildMain,.RightUi .ChildBottom{
+    width:100%;
+    border: 1px solid black;
+    border-top: none;
+}
+.RightUi .ChildMain{
+    height: 70%;
+}
+.RightUi .ChildBottom{
+    top: 70%;
+    height: 30%;
+}

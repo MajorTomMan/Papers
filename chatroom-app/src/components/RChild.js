@@ -1,5 +1,3 @@
-import "../css/Ui.css"
-
 
 export function RChildMain(){
     return (

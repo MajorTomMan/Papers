@@ -1,9 +1,12 @@
 import React from 'react';
-import "../css/Ui.css"
 import Title from './Title';
 import { LChildBottom,LChildMain } from "./LChild"
 import { RChildBottom,RChildMain } from "./RChild"
 
+import "../css/Ui.css"
+import "../css/LChild.css"
+import "../css/RChild.css"
+import "../css/Title.css"
 
 function Top(){
     return (

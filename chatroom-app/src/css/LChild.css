@@ -1,0 +1,40 @@
+.LeftUi .ChildMain,.LeftUi .ChildBottom{
+    width:inherit;
+    border: 1px solid black;
+    border-top: none;
+    border-right: none;
+    position: absolute;
+}
+
+.LeftUi .ChildMain{
+    height: 80%;
+    overflow: auto;
+}
+.LeftUi .ChildBottom{
+    top: 85%;
+    height: 15%;
+}
+
+
+.LeftUi .ChildBottom .ClickBox{
+    position: inherit;
+    width: 25%;
+    height: 30%;
+    top: 70%;
+    left: 75%;
+    border-bottom: none;
+    border-right: none;
+    border-top:1px solid black;
+    border-left:1px solid black;
+}
+
+.LeftUi .ChildBottom .ClickBox p{
+    position: relative;
+    margin: 0%;
+    left: 35%;
+}
+
+.LeftUi .ChildBottom .ClickBox button{
+    margin-left: 5%;
+    margin-top: 2%;
+}
