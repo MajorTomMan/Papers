@@ -1,14 +1,23 @@
 
 export function RChildMain(){
     return (
-        <div className='ChildMain'>
-
-        </div>
+        React.createElement(
+            "div",
+            {
+                className:"ChildMain"
+            },
+            null
+        )
     )
 }
 export function RChildBottom(){
     return (
-        <div className='ChildBottom'>
-        </div>
+        React.createElement(
+            "div",
+            {
+                className:"ChildBottom"
+            },
+            null
+        )
     )
 }
