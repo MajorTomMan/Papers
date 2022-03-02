@@ -1,13 +1,26 @@
-import React, { useState } from 'react';
+import React from 'react';
+import ClickBox from './ClickBox';
 
-export default function Chat(params) {
-    const [Message,setMessage]=useState(params)
-
+export default function Chat() {
     return (
-        <div className='Message'>
-            <p>
-                params
-            </p>
-        </div>
+        React.createElement(
+            "form",
+            {
+                className:"form"
+            },
+            React.createElement(
+                "textarea",
+                {
+                    id:"Input",
+                    placeholder:"请在此处输入聊天内容"
+                },
+                null
+            ),
+            React.createElement(
+                ClickBox,
+                null,
+                null,
+            ),
+        )
     );
 }

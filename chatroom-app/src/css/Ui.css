@@ -2,6 +2,7 @@ html,body,div,h2{
     height: 100%;
     margin: 0;
     padding: 0;
+    resize: none;
 }
 
 .Title{

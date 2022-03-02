@@ -1,40 +1,40 @@
-.LeftUi .ChildMain,.LeftUi .ChildBottom{
+.LeftUi .ChildMain,.LeftUi .ChildBottom,.LeftUi .ChildMain form,.LeftUi .ChildBottom form textarea{
     width:inherit;
-    border: 1px solid black;
-    border-top: none;
-    border-right: none;
     position: absolute;
+    resize: none;
 }
 
 .LeftUi .ChildMain{
     height: 80%;
     overflow: auto;
+    border-right: 1px solid black;
 }
 .LeftUi .ChildBottom{
     top: 85%;
     height: 15%;
 }
 
+.LeftUi .ChildBottom #Input{
+    width: 99.6%;
+    height: 100%;
+}
 
 .LeftUi .ChildBottom .ClickBox{
     position: inherit;
-    width: 25%;
-    height: 30%;
+    width: 100%;
     top: 70%;
-    left: 75%;
-    border-bottom: none;
-    border-right: none;
-    border-top:1px solid black;
-    border-left:1px solid black;
+    height: 30%;
 }
+.LeftUi .ChildBottom .ClickBox form{
+    position: inherit;
+    width: inherit;
+    height: inherit;
+}
+
 
 .LeftUi .ChildBottom .ClickBox p{
-    position: relative;
+    position: absolute;
     margin: 0%;
-    left: 35%;
-}
-
-.LeftUi .ChildBottom .ClickBox button{
-    margin-left: 5%;
-    margin-top: 2%;
+    top: 5px;
+    left: 85%;
 }

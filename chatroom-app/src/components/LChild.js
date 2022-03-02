@@ -1,17 +1,30 @@
-import ClickBox from "./ClickBox"
+import React from "react"
 import "../css/Ui.css"
+import Chat from "./Chat"
+
 
 export function LChildBottom(){
     return (
-        <div className='ChildBottom'>
-            <ClickBox />
-        </div>
+        React.createElement(
+            "div",
+            {
+                className:"ChildBottom"
+            },
+            React.createElement(
+                Chat,
+                null,
+                null
+            )
+        )
     )
 }
 export function LChildMain(){
     return (
-        <div className='ChildMain'>
-
-        </div>
+        React.createElement(
+            "div",
+            {
+                className:"ChildMain"
+            }
+        )
     )
 }

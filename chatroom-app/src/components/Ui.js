@@ -1,7 +1,7 @@
 import React from 'react';
-import Title from './Title';
 import { LChildBottom,LChildMain } from "./LChild"
 import { RChildBottom,RChildMain } from "./RChild"
+import Title from "./Title"
 
 import "../css/Ui.css"
 import "../css/LChild.css"
@@ -10,45 +10,103 @@ import "../css/Title.css"
 
 function Top(){
     return (
-        <div className='Title'>
-            <p className='title'>
-                <Title />
-            </p>
-        </div>
+        React.createElement(
+            "div",
+            {
+                className:"Title"
+            },
+            React.createElement(
+                "p",
+                {
+                    className:"title"
+                }
+            ),
+            React.createElement(
+                Title,
+                null,
+                null,
+            )
+        )
     )
 }
 function Context(){
     return (
-        <div className='Context'>
-            <Left />
-            <Right />
-        </div>
+        React.createElement(
+            "div",
+            {
+                className:"Context"
+            },
+            React.createElement(
+                Left,
+                null,
+                null,
+            ),
+            React.createElement(
+                Right,
+                null,
+                null,
+            )
+        )
     )
 }
 function Right(){
     return (
-        <div className='RightUi'>
-            <RChildMain />
-            <RChildBottom />
-        </div>
+        React.createElement(
+           "div",
+           {
+               className:"RightUi"
+           },
+           React.createElement(
+               RChildMain,
+               null,
+               null,
+           ),
+           React.createElement(
+               RChildBottom,
+               null,
+               null
+           )
+        )
     );
 }
 
 function Left(){
     return (
-        <div className='LeftUi'>
-            <LChildMain />
-            <LChildBottom />
-        </div>
+        React.createElement(
+            "div",
+            {
+                className:"LeftUi",
+            },
+            React.createElement(
+                LChildMain,
+                null,
+                null
+            ),
+            React.createElement(
+                LChildBottom,
+                null,
+                null
+            ),
+        )
     );
 }
 
 
 export default function Menu(){
     return (
-        <>
-            <Top />
-            <Context />
-        </>
+        React.createElement(
+            "div",
+            null,
+            React.createElement(
+                Top,
+                null,
+                null
+            ),
+            React.createElement(
+                Context,
+                null,
+                null
+            ),
+        )
     );
 }
