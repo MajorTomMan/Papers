@@ -5,34 +5,35 @@ import setElementValue_ByClass, { getElementValue_ById } from "../Tools/HandleEl
 
 
 
-export default function useElments(name,index){
-    const SetElementByClass=function(){
-        useEffect(
-            ()=>{
-                setElementValue_ByClass(name,index);
-            }
-        )
-    }
-    const GetElementByClass=function(){
-        useEffect(
-            ()=>{
-                getElementValue_ByClass(name,index);
-            }
-        )
-    }
-    const SetElementById=function(){
-        useEffect(
-            ()=>{
-                setElementValue_ById(name);
-            }
-        )
-    }
-    const GetElementById=function(){
-        useEffect(
-            ()=>{
-                getElementValue_ById(name);
-            }
-        )
-    }
-    return [SetElementByClass(),GetElementByClass(),SetElementById(),GetElementById()];
+export default function SetValueByClass(name,index){
+    return useEffect(
+        ()=>{
+            setElementValue_ByClass(name,index);
+        }
+    )
+}
+
+
+export function GetValueByClass(name,index){
+    return useEffect(
+        ()=>{
+            getElementValue_ByClass(name,index);
+        }
+    )
+}
+
+export function SetValueById(name){
+    return useEffect(
+        ()=>{
+            setElementValue_ById(name);
+        }
+    )
+}
+
+export function GetValueById(name){
+    return useEffect(
+        ()=>{
+            getElementValue_ById(name);
+        }
+    )
 }

@@ -1,6 +1,8 @@
 import React from 'react';
 import ClickBox from './ClickBox';
 
+
+
 export default function Chat() {
     return (
         React.createElement(
@@ -12,7 +14,7 @@ export default function Chat() {
                 "textarea",
                 {
                     id:"Input",
-                    placeholder:"请在此处输入聊天内容"
+                    placeholder:"请在此处输入聊天内容",
                 },
                 null
             ),
@@ -24,3 +26,5 @@ export default function Chat() {
         )
     );
 }
+
+

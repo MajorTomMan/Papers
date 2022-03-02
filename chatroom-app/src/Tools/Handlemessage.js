@@ -1,18 +1,45 @@
-import useElments from "../hooks/useElements";
+import React from "react";
+import { GetValueById } from "../hooks/useElements";
 
 
-export default function HandleMessage(Message){
-    console.log(Message);
-    return (
-        <div className="Message">
-            Message
-        </div>
+export default function Handle(){
+    return React.createElement(
+        "div",
+        {
+            className:"Hello"
+        },
+        React.createElement(
+            "p",
+            null,
+            "Hello!"
+        )
     )
 }
 
-export function GetMessages(name,index){
+
+export function HandleMessage(){
     
-    const func=useElments(name)[4];
-    let Element=func(name);
-    return Element;
 }
+
+function GetMessages(){
+    let Messages=GetValueById("Input")
+    console.log(Messages)
+    return Messages;
+}
+
+
+function FormatMessages(Messages){
+    return React.createElement(
+        "div",
+        {
+            className="Message",
+        },
+        Messages
+    )
+}
+
+function SendMessages(Messages){
+    fetch()
+}
+
+
