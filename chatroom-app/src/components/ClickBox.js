@@ -1,26 +1,30 @@
 import Button from '@mui/material/Button'
-import React from "react"
-import { GetValueById } from "../hooks/useElements";
-
-// 获取文本输入框信息并将其返回至上一个组件
-function HandleMessages(){
-    let Message=GetValueById("Input")
-    console.log(Message)
-    return React.createElement(
-        "div",
-        {
-            className:"Message",
-        },
-        Message
-    )
-}
+import React, { useEffect } from "react"
+import Test from "../data/test.json"
 
 
 export default function ClickBox(){
+    const send=useEffect(
+        ()=>{
+            fetch(
+                "http://localhost:3000/Handle",
+                {
+                    method:"get",
+                    Test,
+                }
+            )
+            .then(res=>res.text)
+            .then(json=>json.results)
+            .then(console.log)
+            .catch(console.error)
+        }
+    )
     return (
         React.createElement(
             "div",
-            {className:"ClickBox"},
+            {
+                className:"ClickBox",
+            },
             React.createElement(
                 "p",
                 null,
@@ -40,7 +44,7 @@ export default function ClickBox(){
                         variant:"contained",
                         size:"small",
                         onClick:()=>{
-                            HandleMessages()
+                            send()
                         }
                     },
                     "发送"

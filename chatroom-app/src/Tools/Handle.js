@@ -17,8 +17,8 @@ export default function Handle(){
 }
 
 
-export function HandleMessage(){
-    
+export function HandleMessages(){
+
 }
 
 function GetMessages(){
@@ -32,7 +32,7 @@ function FormatMessages(Messages){
     return React.createElement(
         "div",
         {
-            className="Message",
+            className:"Message",
         },
         Messages
     )

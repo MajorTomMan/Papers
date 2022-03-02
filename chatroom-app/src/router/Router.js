@@ -1,9 +1,13 @@
 import React from "react";
 import {Routes,Route} from "react-router-dom"
 import App from "../components/App";
-import Handle from "../Tools/Handlemessage"
+import Handle from "../Tools/Handle"
 
-export default function RouterDir(){
+
+
+//路由导向,/导向App组件的渲染,Handle导向handle组件的渲染
+
+export default function Pages(){
     return React.createElement(
         "div",
         null,
@@ -32,6 +36,7 @@ export default function RouterDir(){
                     )
                 }
             ),
+
         )
     )
 }

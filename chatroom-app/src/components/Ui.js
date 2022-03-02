@@ -8,7 +8,7 @@ import "../css/LChild.css"
 import "../css/RChild.css"
 import "../css/Title.css"
 
-function Top(){
+function Top(props){
     return (
         React.createElement(
             "div",
@@ -29,7 +29,7 @@ function Top(){
         )
     )
 }
-function Context(){
+function Context(props){
     return (
         React.createElement(
             "div",
@@ -38,7 +38,9 @@ function Context(){
             },
             React.createElement(
                 Left,
-                null,
+                {
+                    value:props.value
+                },
                 null,
             ),
             React.createElement(
@@ -49,7 +51,7 @@ function Context(){
         )
     )
 }
-function Right(){
+function Right(props){
     return (
         React.createElement(
            "div",
@@ -70,7 +72,7 @@ function Right(){
     );
 }
 
-function Left(){
+function Left(props){
     return (
         React.createElement(
             "div",
@@ -84,7 +86,9 @@ function Left(){
             ),
             React.createElement(
                 LChildBottom,
-                null,
+                {
+                    value:props.value,
+                },
                 null
             ),
         )
@@ -92,7 +96,7 @@ function Left(){
 }
 
 
-export default function Menu(){
+export default function Menu(props){
     return (
         React.createElement(
             React.Fragment,
@@ -104,7 +108,9 @@ export default function Menu(){
             ),
             React.createElement(
                 Context,
-                null,
+                {
+                    value:props.value
+                },
                 null
             ),
         )

@@ -3,7 +3,7 @@ import "../css/Ui.css"
 import Chat from "./Chat"
 
 
-export function LChildBottom(){
+export function LChildBottom(props){
     return (
         React.createElement(
             "div",
@@ -12,7 +12,9 @@ export function LChildBottom(){
             },
             React.createElement(
                 Chat,
-                null,
+                {
+                    value:props.value
+                },
                 null
             )
         )
