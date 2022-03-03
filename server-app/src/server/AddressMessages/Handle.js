@@ -1,5 +1,4 @@
 import React from "react";
-import { GetValueById } from "../hooks/useElements";
 
 
 export default function Handle(){
@@ -21,11 +20,6 @@ export function HandleMessages(){
 
 }
 
-function GetMessages(){
-    let Messages=GetValueById("Input")
-    console.log(Messages)
-    return Messages;
-}
 
 
 function FormatMessages(Messages){
@@ -37,9 +31,4 @@ function FormatMessages(Messages){
         Messages
     )
 }
-
-function SendMessages(Messages){
-    fetch()
-}
-
 

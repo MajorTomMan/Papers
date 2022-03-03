@@ -1,25 +1,21 @@
-import React, { useState } from 'react';
+import { useInput } from '@mui/base';
+import React from 'react';
 import ClickBox from './ClickBox';
 
 
-
-export default function Chat(props) {
-    const [Value,setValue]=useState(props.value)
+export default function Chat() {
     return React.createElement(
         "form",
         {
-            className:"form"
+            className:"form",
         },
         React.createElement(
             "textarea",
             {
                 id:"Input",
                 placeholder:"请在此处输入聊天内容",
-                defaultValue:Value,
-                onSelect:()=>{
-                    setValue()
-                }
             },
+
         ),
         React.createElement(
             ClickBox,
