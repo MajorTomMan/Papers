@@ -1,7 +1,7 @@
 import React from "react";
 import {Routes,Route} from "react-router-dom"
 import App from "../components/App";
-import Handle from "../Tools/Handle"
+import connect from "../components/test";
 
 
 
@@ -19,24 +19,12 @@ export default function Pages(){
                 {
                     path:"/",
                     element:React.createElement(
-                        App,
+                        connect,
                         null,
                         null,
                     ),
                 }
-            ),
-            React.createElement(
-                Route,
-                {
-                    path:"/Handle",
-                    element:React.createElement(
-                        Handle,
-                        null,
-                        null,
-                    )
-                }
-            ),
-
+            )
         )
     )
 }

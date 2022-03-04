@@ -1,24 +1,21 @@
 import Button from '@mui/material/Button'
+import { json } from 'express'
 import React, { useEffect } from "react"
-import Test from "../data/test.json"
-
 
 export default function ClickBox(){
-    const send=useEffect(
+    /* const send=useEffect(
         ()=>{
-            fetch(
-                "http://localhost:3000/Handle",
+            const data=fetch(
+                "http://localhost:4000",
                 {
                     method:"get",
-                    Test,
+                    mode:"no-cors"
                 }
             )
-            .then(res=>res.text)
-            .then(json=>json.results)
-            .then(console.log)
-            .catch(console.error)
+            const js=data.json()
+            console.log(js)
         }
-    )
+    )*/
     return (
         React.createElement(
             "div",
@@ -43,9 +40,9 @@ export default function ClickBox(){
                         type:"Submit",
                         variant:"contained",
                         size:"small",
-                        onClick:{
+                        /* onClick:{
                             send
-                        }
+                        } */
                     },
                     "发送"
                 )
