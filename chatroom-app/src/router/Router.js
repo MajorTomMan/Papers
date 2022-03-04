@@ -1,7 +1,7 @@
 import React from "react";
 import {Routes,Route} from "react-router-dom"
-import App from "../components/App";
-import connect from "../components/test";
+import App from "../components/App"
+import connect from "../components/Connect";
 
 
 
