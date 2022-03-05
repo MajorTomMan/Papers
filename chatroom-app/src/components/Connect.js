@@ -1,28 +1,22 @@
-export default function connect(data)
+import handle from "../Tools/generateMessage";
+import {post} from "../Tools/Request"
+
+export default function Connect(props)
 {
-    let response=null
+    let message={};
     fetch(
-        'http://localhost:4000/',
-        {
-            method:"POST",
-            headers:new Headers(
-                {
-                    "Accept":"application/json",
-                }
-            ),
-            body:{
-                data:{
-                    x:6,
-                    y:6
-                }
-            }
-        }
+        post
     )
-    .then(res=>res.text())
+    .then(
+        res=>res.text()
+    )
     .then(
         (data)=>{
-            console.log(data)
-            return response=data
+            console.log("请求返回的数据:" +data)
+            props.Res.Data=JSON.parse(data)
+            console.log("通过props传入的Res中Data的值:"+props.Res.Data)
+            handle(message,props.Res)
+            console.log("消息对象的值"+message)
         }
     )
     .catch(console.error)

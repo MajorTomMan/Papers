@@ -29,7 +29,9 @@ export default function ClickBox(){
                         type:"Submit",
                         variant:"contained",
                         size:"small",
-                        onClick:send
+                        /* onClick:{
+                            send
+                        } */
                     },
                     "发送"
                 )
