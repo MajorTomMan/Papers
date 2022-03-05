@@ -5,14 +5,8 @@ import { BrowserRouter as Router} from "react-router-dom"
 import Pages from './router/Router';
 
 ReactDOM.render(
-  React.createElement(
-    Router,
-    null,
-    React.createElement(
-      Pages,
-      null,
-      null,
-    )
-  ),
+  <Router>
+    <Pages />
+  </Router>,
   document.getElementById('root')
 );

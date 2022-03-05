@@ -5,28 +5,15 @@ import Chat from "./Chat"
 
 export function LChildBottom(props){
     return (
-        React.createElement(
-            "div",
-            {
-                className:"ChildBottom"
-            },
-            React.createElement(
-                Chat,
-                {
-                    value:props.value
-                },
-                null
-            )
-        )
+        <div className="ChildBottom">
+            <Chat />
+        </div>
     )
 }
 export function LChildMain(){
     return (
-        React.createElement(
-            "div",
-            {
-                className:"ChildMain"
-            }
-        )
+       <div className="ChildMain" >
+           
+        </div>
     )
 }

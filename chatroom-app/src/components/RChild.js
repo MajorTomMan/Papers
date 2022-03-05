@@ -1,24 +1,18 @@
 import React from "react"
 
-export function RChildMain(){
-    return (
-        React.createElement(
-            "div",
-            {
-                className:"ChildMain"
-            },
-            null
-        )
-    )
-}
+
 export function RChildBottom(){
     return (
-        React.createElement(
-            "div",
-            {
-                className:"ChildBottom"
-            },
-            null
-        )
+        <div className="ChildBottom">
+
+        </div>
+    )
+}
+
+export function RChildMain(){
+    return (
+        <div className="ChildMain">
+            
+        </div>
     )
 }

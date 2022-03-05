@@ -5,6 +5,7 @@ import User from "../data/User.json"
 const MyHeaders=new Headers(
     {
         "Accept":"application/json",
+        "Content-Type": "application/json;charset=UTF-8",
     }
 )
 
@@ -14,6 +15,7 @@ export const post=new Request(
         method:"POST",
         headers:MyHeaders,
         cache:"default",
+        mode:"cors",
         body:JSON.stringify(User)
     }
 )
@@ -24,6 +26,5 @@ export const get=new Request(
         method:"GET",
         headers:MyHeaders,
         cache:"default",
-        
     }
 )

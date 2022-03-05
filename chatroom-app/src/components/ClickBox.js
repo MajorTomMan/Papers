@@ -1,41 +1,14 @@
-import React, { useEffect } from "react"
-import connect from "./Connect"
+import React from "react"
+import Button from "@material-ui/core/Button"
 
-export default function ClickBox(){
-    const send=useEffect(
-        connect("TTTTTest")
-    )
+export default function ClickBox() {
+
     return (
-        React.createElement(
-            "div",
-            {
-                className:"ClickBox",
-            },
-            React.createElement(
-                "p",
-                null,
-                React.createElement(
-                    "button",
-                    {
-                        type:"Button",
-                        variant:"contained",
-                        size:"small",
-                    },
-                    "关闭"
-                ),
-                React.createElement(
-                    "button",
-                    {
-                        type:"Submit",
-                        variant:"contained",
-                        size:"small",
-                        /* onClick:{
-                            send
-                        } */
-                    },
-                    "发送"
-                )
-            )
-        )
+        <div className="ClickBox">
+            <p>
+                <Button type="Button" variant="contained" size="small">关闭</Button>
+                <Button type="Button" variant="contained" size="small">发送</Button>
+            </p>
+        </div>
     )
 }

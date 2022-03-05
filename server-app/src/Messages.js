@@ -1,13 +1,16 @@
-
 var React=require('react');
 
-function Handle(){
+function Handle(data){
     return React.createElement(
         "div",
         {
-            className:"Test"
+            className:"Message"
         },
-        "Hello"
+        [
+            data.name?data.name:'',
+            data.id?data.id:'',
+            data.message?data.message:''
+        ]
     )
 }
 

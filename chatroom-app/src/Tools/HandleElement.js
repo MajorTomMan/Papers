@@ -25,6 +25,7 @@ function getElements_class(name){
 
 export function getElementValue_ById(name){
   let Element=getElement_id(name);
+  console.log(Element.textContent);
   return Element.textContent;
 }
 

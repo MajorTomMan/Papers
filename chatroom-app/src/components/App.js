@@ -1,18 +1,8 @@
 import React from 'react'
-import Ui from "./Ui"
-import { GetValueById } from '../hooks/useElements'
+import Menu from './Ui'
 
-
-
-export default function App(props){
-    let Value="Test"
+export default function App(){
     return (
-        React.createElement(
-            Ui,
-            {
-                value:Value
-            },
-            null
-        )
+        <Menu />
     )
 }

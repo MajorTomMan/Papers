@@ -1,8 +1,11 @@
 import handle from "../Tools/generateMessage";
 import {post} from "../Tools/Request"
 
-export default function Connect(props)
+export default function Connect({Data})
 {
+    if(!Data){
+        return null;
+    }
     let message={};
     fetch(
         post
@@ -12,13 +15,21 @@ export default function Connect(props)
     )
     .then(
         (data)=>{
-            console.log("请求返回的数据:" +data)
-            props.Res.Data=JSON.parse(data)
-            console.log("通过props传入的Res中Data的值:"+props.Res.Data)
-            handle(message,props.Res)
-            console.log("消息对象的值"+message)
+            console.log("请求返回的数据:");
+            console.log(data);
+            Data=data;
+            handle(message,Data);
+            console.log("消息对象的值");
+            console.log(message);
+            SaveData(message)
         }
     )
     .catch(console.error)
-    return null;
+    return Object.entries(message)
+}
+
+
+export function SaveData(message){
+    const cacheData=message;
+    return cacheData;
 }
