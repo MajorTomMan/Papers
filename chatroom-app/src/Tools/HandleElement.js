@@ -39,3 +39,29 @@ function getElement_id(name){
   let Element=document.getElementById(name) //返回查找到的第一个元素引用
   return Element;
 }
+
+
+
+export function getElementValue_ByName(name,index){
+  let Element=getElements_name(name)[index];
+  console.log(Element.textContent);
+  return Element.textContent;
+}
+
+
+export function setElementValue_ByName(name,value,index){
+let Element=getElements_name(name)[index];
+Element.textContent=value;
+console.log(Element.textContent)
+}
+
+function getElements_name(name){
+let array=[]
+let Elements=document.getElementsByName(name) //返回一个元素节点集合
+for(var i=0;i<Elements.length;i++){
+  var Element=Elements[i]
+  array.push(Element)
+  console.log(Element)
+}
+return array;
+}

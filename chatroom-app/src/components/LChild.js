@@ -3,7 +3,7 @@ import "../css/Ui.css"
 import Chat from "./Chat"
 
 
-export function LChildBottom(props){
+export function LChildBottom(){
     return (
         <div className="ChildBottom">
             <Chat />

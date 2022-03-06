@@ -14,7 +14,7 @@
     height: 15%;
 }
 
-.LeftUi .ChildBottom #Input{
+.LeftUi .ChildBottom form #Input{
     width: 99.6%;
     height: 100%;
 }
@@ -25,10 +25,10 @@
     top: 70%;
     height: 30%;
 }
-.LeftUi .ChildBottom .ClickBox form{
+.LeftUi .ChildBottom form{
     position: inherit;
-    width: inherit;
-    height: inherit;
+    width: 100%;
+    height: 100%;
 }
 
 

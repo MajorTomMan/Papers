@@ -1,7 +1,4 @@
 
-import User from "../data/User.json"
-
-
 const MyHeaders=new Headers(
     {
         "Accept":"application/json",
@@ -9,16 +6,18 @@ const MyHeaders=new Headers(
     }
 )
 
-export const post=new Request(
-    'http://localhost:4000/',
-    {
-        method:"POST",
-        headers:MyHeaders,
-        cache:"default",
-        mode:"cors",
-        body:JSON.stringify(User)
-    }
-)
+export function post(data){
+    new Request(
+        'http://localhost:4000/',
+        {
+            method:"POST",
+            headers:MyHeaders,
+            cache:"default",
+            mode:"cors",
+            body:JSON.stringify({message:data})
+        }
+    )
+}
 
 export const get=new Request(
     'http://localhost:4000/',
