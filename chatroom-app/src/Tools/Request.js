@@ -7,7 +7,7 @@ const MyHeaders=new Headers(
 )
 
 export function post(data){
-    new Request(
+    return new Request(
         'http://localhost:4000/',
         {
             method:"POST",
@@ -19,11 +19,13 @@ export function post(data){
     )
 }
 
-export const get=new Request(
-    'http://localhost:4000/',
-    {
-        method:"GET",
-        headers:MyHeaders,
-        cache:"default",
-    }
-)
+export function get(){
+        return new Request(
+        'http://localhost:4000/',
+        {
+            method:"GET",
+            headers:MyHeaders,
+            cache:"default",
+        }
+    )
+}

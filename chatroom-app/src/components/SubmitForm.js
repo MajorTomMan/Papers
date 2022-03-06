@@ -1,4 +1,4 @@
-import React,{ useState,useEffect }from 'react';
+import React,{ useState }from 'react';
 import ClickBox from './ClickBox';
 import Connect from './Connect';
 
@@ -9,7 +9,7 @@ export default function Form(){
             value:""
         }
     )
-    const Submit=() => {
+    const submit=() => {
         let formdata=new FormData(document.getElementById("InputForm"))
         console.log("formdata:")
         console.log(formdata.get("message"))
@@ -17,7 +17,7 @@ export default function Form(){
     }
     return (
         <React.Fragment>
-            <form  action="http://localhost:4000/" method='POST' id="InputForm" target="stop" onSubmit={Submit}>
+            <form  action="http://localhost:4000/" method='POST' id="InputForm" target="stop" onSubmit={submit}>
                 <textarea id="Input"  name="message" placeholder='请在此处输入聊天内容'
                           defaultValue={""}
                           onInput={
