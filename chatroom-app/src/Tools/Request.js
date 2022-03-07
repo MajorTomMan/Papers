@@ -6,7 +6,7 @@ const MyHeaders=new Headers(
     }
 )
 
-export function post({data}){
+export function post(data){
     return new Request(
         'http://localhost:4000/',
         {
@@ -20,7 +20,7 @@ export function post({data}){
 }
 
 export function get(){
-        return new Request(
+    return new Request(
         'http://localhost:4000/',
         {
             method:"GET",

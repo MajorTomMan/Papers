@@ -1,5 +1,5 @@
 import React from 'react';
-import Form from './SubmitForm';
+import Form from './Form';
 
 export default function Chat() {
     return (

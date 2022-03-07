@@ -1,7 +1,7 @@
 import React from "react"
 import Button from "@material-ui/core/Button"
 
-export default function ClickBox({input}) {
+export default function ClickBox() {
     return (
         <div className="ClickBox">
             <p>
