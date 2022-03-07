@@ -9,15 +9,17 @@ export default function Form(){
             value:""
         }
     )
-    const submit=() => {
+    const submit=(event) => {
+        event.preventDefault();
         let formdata=new FormData(document.getElementById("InputForm"))
         console.log("formdata:")
         console.log(formdata.get("message"))
-        Connect(formdata)
+        Connect(formdata.get("message"))
+        setInput("")
     }
     return (
         <React.Fragment>
-            <form  action="http://localhost:4000/" method='POST' id="InputForm" target="stop" onSubmit={submit}>
+            <form id="InputForm" target="stop" onSubmit={submit}>
                 <textarea id="Input"  name="message" placeholder='请在此处输入聊天内容'
                           defaultValue={""}
                           onInput={

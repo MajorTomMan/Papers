@@ -6,7 +6,7 @@ const MyHeaders=new Headers(
     }
 )
 
-export function post(data){
+export function post({data}){
     return new Request(
         'http://localhost:4000/',
         {

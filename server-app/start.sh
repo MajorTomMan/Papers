@@ -1,1 +1,1 @@
-DEBUG=myapp:* npm start
+DEBUG=myapp:* npm run auto

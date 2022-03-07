@@ -3,7 +3,7 @@ import {post} from "../Tools/Request"
 
 export default function Connect(Message)
 {
-    const Post=post(Message)
+    const Post=post({data:Message})
     fetch(
         Post
     )
