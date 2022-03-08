@@ -1,5 +1,5 @@
 import React from 'react'
-import Menu from './Ui'
+import Menu from './ui/Ui'
 
 
 export default function App() {

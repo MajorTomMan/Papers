@@ -3,10 +3,10 @@ import { LChildBottom,LChildMain } from "./LChild"
 import { RChildBottom,RChildMain } from "./RChild"
 import Title from "./Title"
 
-import "../css/Ui.css"
-import "../css/LChild.css"
-import "../css/RChild.css"
-import "../css/Title.css"
+import "./css/Ui.css"
+import "./css/LChild.css"
+import "./css/RChild.css"
+import "./css/Title.css"
 
 function Top(){
     return (

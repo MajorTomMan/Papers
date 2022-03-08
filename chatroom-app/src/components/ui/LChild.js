@@ -1,9 +1,8 @@
 import React from "react"
-import "../css/Ui.css"
 import Chat from "./Chat"
 import { useContext } from "react"
-import { Context } from "../router/Router"
-import "../css/Message.css"
+import { Context } from "../../router/Router"
+import "./css/Message.css"
 
 export function LChildBottom(){
     return (

@@ -6,7 +6,7 @@ const MyHeaders=new Headers(
     }
 )
 
-export function post(data){
+export function post({id,message}){
     return new Request(
         'http://localhost:4000/',
         {
@@ -14,10 +14,23 @@ export function post(data){
             headers:MyHeaders,
             cache:"default",
             mode:"cors",
-            body:JSON.stringify({message:data})
+            body:JSON.stringify({id:id,message:message})
         }
     )
 }
+export function POST({name,password}){
+    return new Request(
+        'http://localhost:4000/',
+        {
+            method:"POST",
+            headers:MyHeaders,
+            cache:"default",
+            mode:"cors",
+            body:JSON.stringify({name:name,password:password})
+        }
+    )
+}
+
 
 export function get(){
     return new Request(

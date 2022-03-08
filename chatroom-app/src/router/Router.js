@@ -1,6 +1,7 @@
-import React,{ createContext, useEffect, useState } from "react";
+import React,{ createContext, useState } from "react";
 import {Routes,Route} from "react-router-dom"
 import App from "../components/App"
+import User from "../components/user/User";
 
 
 export const Context = createContext()
@@ -13,10 +14,29 @@ export default function Pages(){
             [value,...List] //使用拷贝来修改数组数据防止数据丢失
         )
     }
+    let [Input,setInput]=useState("")
+    const modifyInput=(value)=>{
+        setInput(
+            value,Input //第一个参数是新值 第二个是旧值
+        )
+    }
+    let [Name,setName]=useState("")
+    const modifyName=(value)=>{
+        setName(
+            value,Name
+        )
+    }
+    let [Password,setPassword]=useState("")
+    const modifyPassword=(value)=>{
+        setPassword(
+            value,Password
+        )
+    }
     return (
-        <Context.Provider value={{ List, modifyList }}>
+        <Context.Provider value={{ List,Input,Name,Password,modifyList,modifyInput,modifyName,modifyPassword }}>
             <Routes>
-                <Route path="/" element={<App />}/>
+                <Route path="/" element={<User />}/>
+                <Route path="/room" element={<App />}/>
             </Routes>
         </Context.Provider>
     )

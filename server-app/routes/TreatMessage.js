@@ -1,4 +1,5 @@
 var Handle=require("../src/Messages")
+var Save=require("../src/storeData")
 var express = require('express');
 var router = express.Router();
 
@@ -13,7 +14,7 @@ router.post('/', function(req, res, next) {
     let message=req.body
     console.log(message)
     res.status(200).send(
-            Handle(message)
+            Save({id:1,name:"",Mesasge:""})
         )
     }
 );
