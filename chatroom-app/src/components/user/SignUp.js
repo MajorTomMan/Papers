@@ -10,6 +10,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { Insert,Select } from '../../Tools/Connect';
 
 function Copyright(props) {
   return (
@@ -27,16 +28,47 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignUp() {
-  const handleSubmit = (event) => {
+  const submit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     // eslint-disable-next-line no-console
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    if(isEmpty(data)){
+      alert("必填项不能为空!")
+    }
+    let res=await Select({
+      name:data.get('name'),
+    })
+    if(isRegister(res)){
+      return false
+    }
+    let iresult=await Insert(
+      {
+        name:data.get('name'),
+        password:data.get('password'),
+        lastname:data.get('lastname'),
+        firstname:data.get('firstname'),
+      }
+    )
+    console.log(iresult)
+    alert(`欢迎注册! ${data.get('name')} ^.^`)
+    window.location.href="/room"
   };
-
+  const isEmpty=(data)=>{
+    if(
+        data.get('lastname')!==''||data.get('firstname')!==''||
+        data.get('name')!==''||data.get('password')!==''
+      ){
+        return false;
+    }
+    return true;
+  }
+  const isRegister=({data})=>{
+    if(data.length!==0){
+      alert("该用户名已经被注册了!")
+      return true
+    }
+    return false
+  }
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
@@ -55,12 +87,22 @@ export default function SignUp() {
           <Typography component="h1" variant="h5">
             注册
           </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+          <Box component="form" noValidate onSubmit={submit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
+                  required
+                  fullWidth
+                  id="LastName" 
+                  label="姓氏"
+                  name="lastname"
+                  autoComplete="family-name"
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
                   autoComplete="given-name"
-                  name="firstName"
+                  name="firstname"
                   required
                   fullWidth
                   id="FirstName"
@@ -68,24 +110,14 @@ export default function SignUp() {
                   autoFocus
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  required
-                  fullWidth
-                  id="LastName"
-                  label="姓氏"
-                  name="lastName"
-                  autoComplete="family-name"
-                />
-              </Grid>
               <Grid item xs={12}>
                 <TextField
                   required
                   fullWidth
-                  id="Email"
-                  label="邮件地址"
-                  name="email"
-                  autoComplete="email"
+                  id="Name"
+                  label="用户名"
+                  name="name"
+                  autoComplete="name"
                 />
               </Grid>
               <Grid item xs={12}>

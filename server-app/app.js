@@ -5,9 +5,6 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors')
 var bodyParser=require('body-parser')
-
-var Handle=require("./routes/HandleMessage")
-
 var app = express();
 
 // view engine setup
@@ -21,8 +18,19 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.text());
 
-app.use('/', Handle);
 
+var apis=require("./routes/Apis.js")
+var insert=require("./routes/Insert.js");
+var del=require("./routes/Delete.js");
+var select=require("./routes/Select.js");
+var update=require("./routes/Update.js");
+
+
+app.use('/',apis)
+app.use('/Insert',insert);
+app.use('/Select',select);
+app.use('/Update',update);
+app.use('/Delete',del);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

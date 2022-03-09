@@ -6,21 +6,33 @@ const MyHeaders=new Headers(
     }
 )
 
-export function post({id,message}){
+export function del({name}){
     return new Request(
-        'http://localhost:4000/',
+        'http://localhost:4000/Delete',
         {
             method:"POST",
             headers:MyHeaders,
             cache:"default",
             mode:"cors",
-            body:JSON.stringify({id:id,message:message})
+            body:JSON.stringify({name})
         }
     )
 }
-export function POST({name,password}){
+export function insert({name,password,lastname,firstname}){
     return new Request(
-        'http://localhost:4000/',
+        'http://localhost:4000/Insert',
+        {
+            method:"POST",
+            headers:MyHeaders,
+            cache:"default",
+            mode:"cors",
+            body:JSON.stringify({name:name,password:password,lastname:lastname,firstname:firstname})
+        }
+    )
+}
+export function update({name,password}){
+    return new Request(
+        'http://localhost:4000/Update',
         {
             method:"POST",
             headers:MyHeaders,
@@ -30,7 +42,18 @@ export function POST({name,password}){
         }
     )
 }
-
+export function select({name}){
+    return new Request(
+        'http://localhost:4000/Select',
+        {
+            method:"POST",
+            headers:MyHeaders,
+            cache:"default",
+            mode:"cors",
+            body:JSON.stringify({name:name})
+        }
+    )
+}
 
 export function get(){
     return new Request(

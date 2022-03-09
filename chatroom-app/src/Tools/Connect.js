@@ -1,24 +1,46 @@
 
-import {post,POST} from "../Tools/Request"
+import {update,insert,select,del} from "../Tools/Request"
 
 
-export default async function SendMesage(Message)
+export async function Update(Message)
 
 {
-    const Post=post(Message)
+    const Post=update(Message)
     let response=await fetch(
         Post
     )
-    return response.text()
+    return response.json()
 }
 
 
-export async function SendUserInfo(Message)
+export async function Insert(Message)
 
 {
-    const Post=POST(Message)
+    const Post=insert(Message)
     let response=await fetch(
         Post
     )
-    return response.text()
+    return response.json()
+}
+
+
+export async function Delete(Message)
+
+{
+    const Post=del(Message)
+    let response=await fetch(
+        Post
+    )
+    return response.json()
+}
+
+
+export async function Select(Message)
+
+{
+    const Post=select(Message)
+    let response=await fetch(
+        Post
+    )
+    return response.json()
 }

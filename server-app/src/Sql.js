@@ -2,9 +2,9 @@ var Pool = require("./config/Start")
 
 
 
-async function Insert({ name, password, firstname, lastname, message }) {
-    let insert = `insert into user(name,password,firstname,lastname,message) 
-    value('${name}','${password}','${firstname}','${lastname}','${message}');`
+async function Insert({ name, password , lastname, firstname, }) {
+    let insert = `insert ignore into user(name,password,lastname,firstname) 
+    value('${name}','${password}','${lastname}','${firstname}');`
     let res=await CreateConnect(insert)
     console.log("返回插入结果:",res)
     return {
@@ -42,11 +42,16 @@ async function Select({ name }) {
         data:res
     }
 }
+
 async function CreateTable() {
     let createTable = `create table if not exists user
-    (id int primary key auto_increment,name varchar(20),
-    password varchar(20),firstname varchar(20),
-    lastname varchar(20),message varchar(200));`
+    (
+        id int primary key auto_increment,
+        name varchar(20) not null unique key,
+        password varchar(20),
+        lastname varchar(20),
+        firstname varchar(20)
+    )engine=innodb default character set='utf8';`
     let res=await CreateConnect(createTable)
     return {
         code:1,

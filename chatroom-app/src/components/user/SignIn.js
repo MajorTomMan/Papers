@@ -12,7 +12,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { SendUserInfo } from '../../Tools/Connect';
+import { Select  } from '../../Tools/Connect';
 
 function Copyright(props) {
   return (
@@ -30,28 +30,39 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignIn() {
-  const submit = (event) => {
+  const submit = async (event) => {
     event.preventDefault()
     const data = new FormData(event.currentTarget);
     // eslint-disable-next-line no-console
-    if(data.get('name')===''||data.get('password')===''){
-      alert("用户名或者密码不能为空")
-      return false
+    if(isEmpty(data)){
+      alert("用户名或者密码不能为空,请重新输入")
     }
     else{
-      SendUserInfo(
+      let res=await Select(
         {
           name: data.get('name'),
           password: data.get('password'),
         }
-      ).then(
-        (res)=>{
-          console.log(res)
-        }
       )
+      console.log("后端返回:",res)
+      isRegister(res)
     }
-
   };
+  const isEmpty=(data)=>{
+    if(data.get('name')===''||data.get('password')===''){
+      return true
+    }
+    return false
+  }
+  const isRegister=({data})=>{
+    if(data.length!==0){
+      window.location.href="/room"
+    }
+    else{
+      alert("您尚未注册.马上跳转注册页面^.^")
+      window.location.href="/signup"
+    }
+  }
 
   return (
     <ThemeProvider theme={theme}>
@@ -77,7 +88,7 @@ export default function SignIn() {
               required
               fullWidth
               id="Name"
-              label="名字"
+              label="用户名"
               name="name"
               autoComplete="name"
               autoFocus
