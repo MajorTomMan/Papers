@@ -6,6 +6,7 @@ module.exports = {
       port: 3306,        // MySQL 默认端口为 3306
       user: 'master',          // 使用 root 用户登入 MySQL
       password: '981221', // MySQL 密码，用你自己的
-      database: 'chatroom' // 使用数据库
+      database: 'chatroom', // 使用数据库
+      charset:'utf8'
     }
 }

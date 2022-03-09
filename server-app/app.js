@@ -6,7 +6,7 @@ var logger = require('morgan');
 var cors = require('cors')
 var bodyParser=require('body-parser')
 
-var Treat=require("./routes/TreatMessage")
+var Handle=require("./routes/HandleMessage")
 
 var app = express();
 
@@ -21,7 +21,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.text());
 
-app.use('/', Treat);
+app.use('/', Handle);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

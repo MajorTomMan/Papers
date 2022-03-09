@@ -1,7 +1,7 @@
 import React,{ createContext, useState } from "react";
 import {Routes,Route} from "react-router-dom"
 import App from "../components/App"
-import User from "../components/user/User";
+import Login,{ LogUp } from "../components/user/Ui";
 
 
 export const Context = createContext()
@@ -35,9 +35,11 @@ export default function Pages(){
     return (
         <Context.Provider value={{ List,Input,Name,Password,modifyList,modifyInput,modifyName,modifyPassword }}>
             <Routes>
-                <Route path="/" element={<User />}/>
+                <Route path="/signin" element={<Login />}/>
                 <Route path="/room" element={<App />}/>
-            </Routes>
+                <Route path="/signup" element={<LogUp />}/>
+                <Route path="*" element={<Login />} />
+            </Routes> 
         </Context.Provider>
     )
 }

@@ -1,6 +1,6 @@
 var mysql=require("mysql")
 var config=require("./Config").config
 
-const  Connection = mysql.createConnection(config);
+const Pool = mysql.createPool(config);
 
-module.exports=Connection
+module.exports=Pool
