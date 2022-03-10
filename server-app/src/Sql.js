@@ -33,7 +33,7 @@ async function Delete({ name }) {
     }
 }
 async function Select({ name }) {
-    let select = `select * from user where name='${name}';`
+    let select = `select name,password from user where name='${name}';`
     let res=await CreateConnect(select)
     console.log("返回查询结果:",res)
     return {

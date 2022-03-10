@@ -48,9 +48,8 @@ export default function SignIn() {
       )
       console.log("后端返回:",res)
       isRegister(data,res)
-      let response=await Group({name:data.get('name'),message:''})
+      let response=await Group({name:data.get('name'),message:'测试一下'})
       console.log(response)
-      window.location.href="/room"
     }
   };
   const isEmpty=(data)=>{

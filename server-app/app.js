@@ -19,14 +19,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.text());
 
 
-var apis=require("./routes/Apis.js")
-var insert=require("./routes/Insert.js");
-var del=require("./routes/Delete.js");
-var select=require("./routes/Select.js");
-var update=require("./routes/Update.js");
+var insert=require("./routes/Insert");
+var del=require("./routes/Delete");
+var select=require("./routes/Select");
+var update=require("./routes/Update");
+var group=require("./routes/Group")
 
 
-app.use('/',apis)
+app.use('/Group',group)
 app.use('/Insert',insert);
 app.use('/Select',select);
 app.use('/Update',update);
