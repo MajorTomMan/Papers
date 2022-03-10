@@ -40,18 +40,32 @@ class LinkList{
         }
         return false
     }
+    delete({name}){
+        if(this.#isEmpty()){
+            this.head=new Node(name,message,null)
+            return;
+        }
+        let target=this.#head;
+        for(let pre=null;target.getName()!==name&&target!=null;pre=target,target=target.getNext()){
+            if(target.getName===name){
+                pre.setNext(target.getNext())
+                break;
+            }
+        }
+    }
     insert({name,message}){
         if(this.#isEmpty()){
             this.head=new Node(name,message,null)
             return;
         }
-        let temp=this.#head;
         let target=this.find({name:name})
-        if(target===null){
-            temp.setNext(new Node(name,message,null))
+        if(target==null){
+            let node=new Node(name,message,null)
+            node.setNext(this.#head.getNext()) //头插法
+            this.#head.setNext(node); 
         }
         else{
-            temp.setMessage(message)
+            target.setMessage(message)
         }
     }
     find({name}){
@@ -59,22 +73,25 @@ class LinkList{
             this.#head=new Node(name,message,null)
             return;
         }
-        if(this.#head.getName()===name){
-            return this.#head
-        }
-        let temp=this.#head;
-        for(;temp!=null;temp=temp.getNext()){
-            if(temp.getName()===name){
+        let temp=this.#head
+        while(temp!=null){
+            if(temp.getName()==name){
                 return temp
             }
+            temp=temp.getNext()
         }
-        return null
+        return null;
     }
     query(){
         let data=[]
         let temp=this.#head
         while(temp!==null){
-            data.push([temp.getName(),temp.getMessage()])
+            if(temp.getName()==null){
+                ;
+            }
+            else{
+                data.push([temp.getName(),temp.getMessage()])
+            }
             temp=temp.getNext()
         }
         return data
