@@ -1,8 +1,7 @@
 import React from "react"
 import Chat from "./Chat"
-import { useContext } from "react"
-import { Context } from "../../router/Router"
 import "./css/Message.css"
+import { List } from "./Form"
 
 export function LChildBottom(){
     return (
@@ -12,20 +11,28 @@ export function LChildBottom(){
     )
 }
 export function LChildMain(){
-    const {List,Name}=useContext(Context)
-    return (
-       <div id="OutPut" className="ChildMain" >
-           {
-                List.map(
-                    (data,i)=>{
-                        return(
-                            <div key={i} className="Message">
-                                {data}
-                            </div>
-                        )
-                    }
-                )
-           }
+    if(List){
+        return (
+            <div id="OutPut" className="ChildMain" >
+                {
+                     List.map(
+                         ({name,message,time},i)=>{
+                             return(
+                                 <div key={i} className="Message">
+                                     <p>
+                                         {name}      {time} <br/>
+                                         {message}
+                                    </p>
+                                 </div>
+                             )
+                         }
+                     )
+                }
+             </div>
+         )
+    }
+    else{
+        <div id="OutPut" className="ChildMain" >
         </div>
-    )
+    }
 }

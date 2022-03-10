@@ -11,7 +11,6 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Insert,Select } from '../../Tools/Connect';
-import { Context } from '../../router/Router';
 
 function Copyright(props) {
   return (
@@ -52,7 +51,7 @@ export default function SignUp() {
     )
     console.log(iresult)
     alert(`欢迎注册! ${data.get('name')} ^.^`)
-    window.location.href="/room"
+    window.location.href=`/room?name=${data.get('name')}`
   };
   const isEmpty=(data)=>{
     if(

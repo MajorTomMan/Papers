@@ -1,10 +1,12 @@
 class Node{
     #name="";
-    #message=[];
+    #message='';
+    #time='';
     #next=null;
-    constructor(name,message,next){
+    constructor(name,message,time,next){
         this.#name=name
-        this.#message.push(message)
+        this.#message=message
+        this.#time=time
         this.#next=next
     }
     getName(){
@@ -13,6 +15,9 @@ class Node{
     getMessage(){
         return this.#message
     }
+    getTime(){
+        return this.#time
+    }
     getNext(){
         return this.#next
     }
@@ -20,7 +25,10 @@ class Node{
         this.#name=name
     }
     setMessage(message){
-        this.#message.push(message)
+        this.#message=message
+    }
+    setTime(time){
+        this.#time=time
     }
     setNext(next){
         this.#next=next
@@ -31,8 +39,8 @@ class Node{
 
 class LinkList{
     #head=null
-    constructor({name,message}){
-        this.#head=new Node(name,message,null)
+    constructor({name,message,time}){
+        this.#head=new Node(name,message,time,null)
     }
     #isEmpty(){
         if(this.#head===null){
@@ -42,7 +50,7 @@ class LinkList{
     }
     delete({name}){
         if(this.#isEmpty()){
-            this.head=new Node(name,message,null)
+            this.head=new Node(name,message,time,null)
             return;
         }
         let target=this.#head;
@@ -53,26 +61,16 @@ class LinkList{
             }
         }
     }
-    insert({name,message}){
+    insert({name,message,time}){
         if(this.#isEmpty()){
-            this.head=new Node(name,message,null)
+            this.head=new Node(name,message,time,null)
             return;
         }
-        let target=this.find({name:name})
-        if(target==null){
-            let node=new Node(name,message,null)
-            node.setNext(this.#head.getNext()) //头插法
-            this.#head.setNext(node); 
-        }
-        else{
-            target.setMessage(message)
-        }
+        let node=new Node(name,message,time,null)
+        node.setNext(this.#head.getNext()) //头插法
+        this.#head.setNext(node); 
     }
     find({name}){
-        if(this.#isEmpty()){
-            this.#head=new Node(name,message,null)
-            return;
-        }
         let temp=this.#head
         while(temp!=null){
             if(temp.getName()==name){
@@ -90,15 +88,21 @@ class LinkList{
                 ;
             }
             else{
-                data.push([temp.getName(),temp.getMessage()])
+                data.push(
+                    {
+                        name:temp.getName(),
+                        message:temp.getMessage(),
+                        time:temp.getTime(),
+                    }
+                )
             }
-            temp=temp.getNext()
+            temp=temp.getNext();
         }
         return data
     }
 }
 
 
-const List=new LinkList("",[],null)
+const List=new LinkList("",[],[],null)
 
 module.exports=List

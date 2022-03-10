@@ -63,8 +63,7 @@ export default function SignIn() {
       }
       else{
         alert(`欢迎回来! ${formdata.get('name')} ^.^`)
-        let response=await Group({name:formdata.get('name'),message:'测试一下'})
-        console.log(response)
+        window.location.href ="/room?name="+encodeURI(formdata.get('name'))+""; 
       }
     }
     else{

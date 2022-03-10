@@ -54,7 +54,7 @@ export function select({name}){
         }
     )
 }
-export function group({name,message}){
+export function group({name,message,time}){
     return new Request(
         'http://localhost:4000/Group',
         {
@@ -62,7 +62,7 @@ export function group({name,message}){
             headers:MyHeaders,
             cache:"default",
             mode:"cors",
-            body:JSON.stringify({name:name,message:message})
+            body:JSON.stringify({name:name,message:message,time:time})
         }
     )
 }
