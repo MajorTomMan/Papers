@@ -12,7 +12,7 @@ export function LChildBottom(){
     )
 }
 export function LChildMain(){
-    const {List}=useContext(Context)
+    const {List,Name}=useContext(Context)
     return (
        <div id="OutPut" className="ChildMain" >
            {

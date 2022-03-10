@@ -12,7 +12,9 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { Select  } from '../../Tools/Connect';
+import { Group, Select  } from '../../Tools/Connect';
+import { Context } from '../../router/Router';
+import { useContext } from 'react'
 
 function Copyright(props) {
   return (
@@ -45,7 +47,10 @@ export default function SignIn() {
         }
       )
       console.log("后端返回:",res)
-      isRegister(res)
+      isRegister(data,res)
+      let response=await Group({name:data.get('name'),message:''})
+      console.log(response)
+      window.location.href="/room"
     }
   };
   const isEmpty=(data)=>{
@@ -54,9 +59,16 @@ export default function SignIn() {
     }
     return false
   }
-  const isRegister=({data})=>{
+  const isRegister=(formdata,{data})=>{
+    let password=data[0].password
     if(data.length!==0){
-      window.location.href="/room"
+      if(password!==formdata.get('password')){
+        alert("您输入的用户名或密码不正确,请重新输入-.-")
+        return false;
+      }
+      else{
+        alert(`欢迎回来! ${formdata.get('name')} ^.^`)
+      }
     }
     else{
       alert("您尚未注册.马上跳转注册页面^.^")

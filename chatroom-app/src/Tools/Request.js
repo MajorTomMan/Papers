@@ -54,7 +54,18 @@ export function select({name}){
         }
     )
 }
-
+export function group({name,message}){
+    return new Request(
+        'http://localhost:4000/Group',
+        {
+            method:"POST",
+            headers:MyHeaders,
+            cache:"default",
+            mode:"cors",
+            body:JSON.stringify({name:name,message:message})
+        }
+    )
+}
 export function get(){
     return new Request(
         'http://localhost:4000/',

@@ -8,7 +8,7 @@ export default function Login(){
         <SignIn />
     )
 }
-export function LogUp(){
+export function Logup(){
     return(
         <SignUp />
     )

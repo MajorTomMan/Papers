@@ -2,13 +2,16 @@ import React, { useContext } from 'react';
 import ClickBox from './ClickBox';
 import $ from "jquery"
 import { Context } from "../../router/Router" 
+import { Group } from '../../Tools/Connect';
 
 export default function Form() {
     // 使用钩子获取form中textarea的输入值并且在输入改变后重新获取
-    const {Input,modifyList,modifyInput}=useContext(Context)
-    const submit = (event) => {
+    const {Name,Input,modifyList,modifyInput}=useContext(Context)
+    const submit = async (event) => {
         event.preventDefault();
         modifyList(Input)
+        let res=await Group({name:Name,message:Input})
+        console.log(res)
         reset()
     }
     const reset = () => {
@@ -21,7 +24,6 @@ export default function Form() {
                     defaultValue={Input.value}
                     onInput={
                         (event) => {
-                            console.log(Input)
                             modifyInput(event.target.value)
                         }
                     }
