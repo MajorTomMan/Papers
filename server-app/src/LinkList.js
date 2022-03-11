@@ -39,6 +39,7 @@ class Node{
 
 class LinkList{
     #head=null
+    #size=0
     constructor({name,message,time}){
         this.#head=new Node(name,message,time,null)
     }
@@ -61,14 +62,28 @@ class LinkList{
             }
         }
     }
+    del(){
+        if(this.#isEmpty()){
+            this.head=new Node(name,message,time,null)
+            return;
+        }
+        let temp=this.#head
+        let next=temp.getNext()
+        temp.setNext(next.getNext())
+        this.#size--
+    }
     insert({name,message,time}){
         if(this.#isEmpty()){
             this.head=new Node(name,message,time,null)
             return;
         }
+        if(this.#size==20){
+            this.del()
+        }
         let node=new Node(name,message,time,null)
         node.setNext(this.#head.getNext()) //头插法
-        this.#head.setNext(node); 
+        this.#head.setNext(node);
+        this.#size++
     }
     find({name}){
         let temp=this.#head
@@ -97,6 +112,24 @@ class LinkList{
                 )
             }
             temp=temp.getNext();
+        }
+        return data
+    }
+    getName(){
+        let data=[]
+        let temp=this.#head
+        let i=0
+        while(temp!==null){
+            if(temp.getName()==null){
+                ;
+            }
+            else{
+                if(data[i-1]!==temp.getName()){
+                    data.push(temp.getName())
+                }
+            }
+            temp=temp.getNext();
+            i++
         }
         return data
     }
