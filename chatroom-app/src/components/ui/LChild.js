@@ -1,7 +1,7 @@
-import React from "react"
+import React, { useContext } from "react"
+import { Context } from "../App"
 import Chat from "./Chat"
 import "./css/Message.css"
-import { List } from "./Form"
 
 export function LChildBottom(){
     return (
@@ -11,7 +11,8 @@ export function LChildBottom(){
     )
 }
 export function LChildMain(){
-    if(List){
+    const {List}=useContext(Context)
+    if(List.length!=0){
         return (
             <div id="OutPut" className="ChildMain" >
                 {
@@ -32,7 +33,10 @@ export function LChildMain(){
          )
     }
     else{
-        <div id="OutPut" className="ChildMain" >
-        </div>
+        return (
+            <div id="OutPut" className="ChildMain" >
+                
+            </div>
+        )
     }
 }

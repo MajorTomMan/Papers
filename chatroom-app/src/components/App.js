@@ -5,6 +5,13 @@ import Menu from './ui/Ui'
 export const Context = createContext()
 
 export default function App() {    
+    let [List,setList]=useState([])
+    const modifyList=(value)=>{
+        setList(
+            ...List,value
+        )
+        console.log("modifyList:",List)
+    }
     let [Input,setInput]=useState("")
     const modifyInput=(value)=>{
         setInput(
@@ -12,7 +19,7 @@ export default function App() {
         )
     }
     return (
-        <Context.Provider value={{ Input,modifyInput }} > 
+        <Context.Provider value={{ Input,modifyInput,List,modifyList }} > 
             <Menu />
         </Context.Provider>
     )

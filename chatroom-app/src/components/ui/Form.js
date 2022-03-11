@@ -4,12 +4,10 @@ import $ from "jquery"
 import { Context } from "../App"
 import { Group } from '../../Tools/Connect';
 
-export const List=[]
-
 
 export default function Form() {
     // 使用钩子获取form中textarea的输入值并且在输入改变后重新获取
-    const { Input, modifyInput } = useContext(Context)
+    const { Input, modifyInput,modifyList } = useContext(Context)
     function getQueryString(name) {
         let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
         let r = window.location.search.substr(1).match(reg);
@@ -25,10 +23,10 @@ export default function Form() {
         let hours=new Date().getHours()
         let res = await Group({ name: name, message: Input,time:`${hours}:${mins}`})
         res=JSON.parse(res)
+        console.log(res)
         reset()
         modifyInput("")
-        List.push(...res)
-        console.log(List)
+        modifyList([...res])
     }
     const reset = () => {
         $("#Input").val("")
