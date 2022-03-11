@@ -8,7 +8,7 @@ export default function App() {
     let [List,setList]=useState([])
     const modifyList=(value)=>{
         setList(
-            ...List,value
+            value,...List
         )
         console.log("modifyList:",List)
     }

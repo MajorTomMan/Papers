@@ -23,10 +23,10 @@ export default function Form() {
         let hours=new Date().getHours()
         let res = await Group({ name: name, message: Input,time:`${hours}:${mins}`})
         res=JSON.parse(res)
-        console.log(res)
+        let temp=[...res]
         reset()
         modifyInput("")
-        modifyList([...res])
+        modifyList(temp)
     }
     const reset = () => {
         $("#Input").val("")
