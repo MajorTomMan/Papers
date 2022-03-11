@@ -53,3 +53,14 @@ export async function Group(Message)
     )
     return response.text()
 }
+
+
+export async function Get(Message)
+
+{
+    const get=Get(Message)
+    let response=await fetch(
+        get
+    )
+    return response.text()
+}

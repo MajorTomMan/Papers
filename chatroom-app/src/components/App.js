@@ -10,7 +10,6 @@ export default function App() {
         setList(
             value,...List
         )
-        console.log("modifyList:",List)
     }
     let [Input,setInput]=useState("")
     const modifyInput=(value)=>{
@@ -18,8 +17,14 @@ export default function App() {
             value,Input //第一个参数是新值 第二个是旧值
         )
     }
+    let [Name,setName]=useState([])
+    const modifyName=(value)=>{
+        setName(
+            value,...Name
+        )
+    }
     return (
-        <Context.Provider value={{ Input,modifyInput,List,modifyList }} > 
+        <Context.Provider value={{ Input,modifyInput,List,modifyList,Name,modifyName }} > 
             <Menu />
         </Context.Provider>
     )

@@ -116,7 +116,7 @@ class LinkList{
         return data
     }
     getName(){
-        let data=[]
+        let set=new Set()
         let temp=this.#head
         let i=0
         while(temp!==null){
@@ -124,14 +124,12 @@ class LinkList{
                 ;
             }
             else{
-                if(data[i-1]!==temp.getName()){
-                    data.push(temp.getName())
-                }
+                set.add(temp.getName())
             }
             temp=temp.getNext();
             i++
         }
-        return data
+        return Array.from(set)
     }
 }
 
