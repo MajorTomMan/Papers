@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Context } from "../App"
 import { LChildBottom,LChildMain } from "./LChild"
 import { RChildBottom,RChildMain } from "./RChild"
 import Title from "./Title"
+import { Query } from '../../Tools/Connect';
 
 import "./css/Ui.css"
 import "./css/LChild.css"
@@ -17,7 +19,7 @@ function Top(){
         </div>
     )
 }
-function Context(){
+function Content(){
     return (
         <div className='Context'>
             <Left />
@@ -45,10 +47,27 @@ function Left(){
 
 
 export default function Menu(){
+    const { modifyList,modifyName} = useContext(Context)
+    setInterval(
+        async ()=>{
+            let res=await Query()
+            res=JSON.parse(res)
+            let temp=getdata(res)
+            let username=getname(res)
+            modifyList(temp)
+            modifyName(username)
+        },2000
+    )
+    const getdata=({data})=>{
+        return [...data]
+    }
+    const getname=({name})=>{
+        return name
+    }
     return (
         <React.Fragment>
             <Top />
-            <Context />
+            <Content />
         </React.Fragment>
     );
 }

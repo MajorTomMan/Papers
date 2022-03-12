@@ -12,14 +12,14 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { Group, Select  } from '../../Tools/Connect';
+import { Select  } from '../../Tools/Connect';
 
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        www.CCCChatRoom.com
+      <Link color="inherit" href="Http://info.cern.ch/">
+        FirstWebSite
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}

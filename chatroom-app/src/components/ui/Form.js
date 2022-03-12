@@ -7,10 +7,10 @@ import { Group } from '../../Tools/Connect';
 
 export default function Form() {
     // 使用钩子获取form中textarea的输入值并且在输入改变后重新获取
-    const { Input, modifyInput,modifyList,modifyName} = useContext(Context)
+    const { Input, modifyInput } = useContext(Context)
     function getQueryString(name) {
         let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
-        let r = window.location.search.substr(1).match(reg);
+        let r = window.location.search.substring(1).match(reg);
         if (r != null) {
             return decodeURIComponent(r[2]);
         };
@@ -21,23 +21,12 @@ export default function Form() {
         let name=getQueryString("name")
         let mins=new Date().getMinutes()
         let hours=new Date().getHours()
-        let res = await Group({ name: name, message: Input,time:`${hours}:${mins}`})
-        res=JSON.parse(res)
-        let temp=getdata(res)
-        let username=getname(res)
+        await Group({ name: name, message: Input,time:`${hours}:${mins}`})
         reset()
         modifyInput("")
-        modifyList(temp)
-        modifyName(username)
     }
     const reset = () => {
         $("#Input").val("")
-    }
-    const getdata=({data})=>{
-        return [...data]
-    }
-    const getname=({name})=>{
-        return name
     }
     return (
         <React.Fragment>

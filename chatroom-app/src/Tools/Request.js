@@ -66,7 +66,9 @@ export function group({name,message,time}){
         }
     )
 }
-export function Get(){
+
+
+export function query(){
     return new Request(
         'http://localhost:4000/Group',
         {

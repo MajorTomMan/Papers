@@ -1,5 +1,5 @@
 
-import {update,insert,select,del,group} from "../Tools/Request"
+import {update,insert,select,del,group,query} from "../Tools/Request"
 
 
 export async function Update(Message)
@@ -44,23 +44,22 @@ export async function Select(Message)
     return response.json()
 }
 
-export async function Group(Message)
+export function Group(Message)
 
 {
     const Post=group(Message)
-    let response=await fetch(
+    fetch(
         Post
     )
-    return response.text()
 }
 
 
-export async function Get(Message)
+export async function Query()
 
 {
-    const get=Get(Message)
+    const Get=query()
     let response=await fetch(
-        get
+        Get
     )
     return response.text()
 }
