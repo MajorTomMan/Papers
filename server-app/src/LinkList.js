@@ -39,6 +39,7 @@ class Node{
 
 class LinkList{
     #head=null
+    #user=[]
     #size=0
     constructor({name,message,time}){
         this.#head=new Node(name,message,time,null)
@@ -115,21 +116,26 @@ class LinkList{
         }
         return data
     }
-    getName(){
-        let set=new Set()
-        let temp=this.#head
-        let i=0
-        while(temp!==null){
-            if(temp.getName()==null){
-                ;
-            }
-            else{
-                set.add(temp.getName())
-            }
-            temp=temp.getNext();
-            i++
+    deluser({name}){
+        if(this.#user.includes(name)){
+            let index=this.#user.findIndex(
+                (item)=>{
+                    return item===name
+                }
+            )
+            this.#user.splice(index,1)
         }
-        return Array.from(set)
+    }
+    addUser({name}){
+        if(this.#user.includes(name)){
+
+        }
+        else{
+            this.#user.push(name)
+        }
+    }
+    getUser(){
+        return this.#user
     }
 }
 

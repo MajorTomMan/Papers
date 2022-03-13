@@ -1,8 +1,10 @@
 import React from "react"
 import Button from "@material-ui/core/Button"
+import { socket } from "./Ui"
 
 export default function ClickBox() {
     const close=()=>{
+        socket.close()
         alert("感谢使用,希望下次继续进来聊天^.^")
         window.location.href="/signin"
     }

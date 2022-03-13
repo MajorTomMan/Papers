@@ -6,6 +6,10 @@ var logger = require('morgan');
 var cors = require('cors')
 var bodyParser=require('body-parser')
 var app = express();
+const http = require('http');
+const server = http.Server(app);
+require('express-ws')(app, server);
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -31,6 +35,8 @@ app.use('/Insert',insert);
 app.use('/Select',select);
 app.use('/Update',update);
 app.use('/Delete',del);
+
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -47,4 +53,5 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+
+module.exports = { app, server };

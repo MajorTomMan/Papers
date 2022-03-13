@@ -1,14 +1,16 @@
-import React, { useContext } from 'react';
+import React, { useContext,useEffect } from 'react';
 import { Context } from "../App"
 import { LChildBottom,LChildMain } from "./LChild"
 import { RChildBottom,RChildMain } from "./RChild"
 import Title from "./Title"
-import { Query } from '../../Tools/Connect';
 
 import "./css/Ui.css"
 import "./css/LChild.css"
 import "./css/RChild.css"
 import "./css/Title.css"
+
+
+export var socket=null
 
 function Top(){
     return (
@@ -48,16 +50,33 @@ function Left(){
 
 export default function Menu(){
     const { modifyList,modifyName} = useContext(Context)
-    setInterval(
-        async ()=>{
-            let res=await Query()
-            res=JSON.parse(res)
-            let temp=getdata(res)
-            let username=getname(res)
-            modifyList(temp)
-            modifyName(username)
-        },2000
-    )
+    function getQueryVariable(variable){
+       var query = window.location.search.substring(1);
+       var vars = query.split("&");
+       for (var i=0;i<vars.length;i++) {
+               var pair = vars[i].split("=");
+               if(pair[0] == variable){return pair[1];}
+       }
+       return(false);
+    }
+    if(socket!=null){
+
+    }
+    else{
+        let name=decodeURIComponent(getQueryVariable('name'))
+        socket=new WebSocket(`ws://localhost:4000/Group?name=${name}`)
+    }
+    socket.onopen=(event)=>{
+        socket.send("hello server!")
+    }
+    socket.onmessage=(event)=>{
+        let res=event.data
+        res=JSON.parse(res)
+        let temp=getdata(res)
+        let username=getname(res)
+        modifyList(temp)
+        modifyName(username)
+    }
     const getdata=({data})=>{
         return [...data]
     }
